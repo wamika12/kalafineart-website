@@ -211,7 +211,8 @@ a { color: inherit; }
 .where-grid > div { min-width: 0; padding: 22px 18px; border-top: 1px solid var(--rule); }
 .where-grid h3 { margin: 0 0 8px; font-family: var(--bold); font-weight: 700; font-size: 18px; }
 .where-grid p { margin: 0; font-size: 16px; line-height: 1.7; }
-.where-note { font-size: 15px; margin: 26px auto 0; color: #5c5850; }
+.where-note { font-size: 17px; margin: 26px auto 0; color: var(--ink); }
+.where-note strong { font-weight: 400; font-family: var(--bold); font-weight: 700; letter-spacing: .01em; }
 .page-sub { text-align: center; font-size: 18px; margin: 4px 0 0; color: #5c5850; }
 .contact-base { font-size: 15px; color: #5c5850; letter-spacing: .02em; }
 @media (max-width: 900px) { .where-grid { grid-template-columns: 1fr; gap: 0; } }
