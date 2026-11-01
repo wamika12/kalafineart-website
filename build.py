@@ -10,6 +10,7 @@ ROOT = Path(__file__).parent
 FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfYFw3JZnRzN8nLyTJm6h2s0l_YPWYItd2CS3rHMZSqQvEaoA/viewform"
 IG = "https://www.instagram.com/kalafineart"
 TT = "https://www.tiktok.com/t/ZP8mBsE6P/"
+GOOGLE_REVIEWS = "https://maps.app.goo.gl/PhoWwW3YnVLsdM52A"
 PHONE = "+1 425-892-4523"
 EMAIL = "kala.fine.artist@gmail.com"
 # Free key from web3forms.com: inquiries are emailed to the address it was created with
@@ -113,7 +114,7 @@ BUSINESS = {
     "founder": {"@type": "Person", "name": "Wamika Bansal", "jobTitle": "Live Wedding Painter"},
     "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US"},
     "areaServed": AREAS,
-    "priceRange": "$$$", "sameAs": [IG, TT],
+    "priceRange": "$$$", "sameAs": [IG, TT, GOOGLE_REVIEWS],
 }
 
 FAQS = [
@@ -191,6 +192,11 @@ home_body = f"""
   </div>
 </section>
 
+<section class="reviews-cta wrap" aria-label="Reviews">
+  <p class="stars" aria-hidden="true">★★★★★</p>
+  <p class="reviews-line">Read what couples are saying about Kala Fine Art</p>
+  <p><a class="btn btn-outline" href="{GOOGLE_REVIEWS}" target="_blank" rel="noopener">Read our reviews on Google</a></p>
+</section>
 <section class="home-cta">
   <a class="btn" href="contact.html">Book a free consultation</a>
 </section>
@@ -407,6 +413,7 @@ contact_body = f"""
         <li>{ICONS['tiktok']}<a href="{TT}" target="_blank" rel="noopener">kalafineart</a></li>
         <li>{ICONS['email']}<a href="mailto:{EMAIL}" style="text-decoration:none">{EMAIL}</a></li>
       </ul>
+      <p class="side-reviews"><a href="{GOOGLE_REVIEWS}" target="_blank" rel="noopener">★★★★★ Read our reviews on Google</a></p>
     </aside>
   </div>
 </section>

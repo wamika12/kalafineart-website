@@ -281,3 +281,12 @@ a { color: inherit; }
   .hol-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .hol-close-inner img { max-width: 320px; margin: 0 auto; }
 }
+
+/* ---------- Reviews ---------- */
+.reviews-cta { text-align: center; padding: 10px 0 50px; }
+.stars { color: var(--gold); font-size: 26px; letter-spacing: .25em; margin: 0; }
+.reviews-line { font-size: 19px; margin: 6px 0 20px; }
+.btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--ink); text-decoration: none; letter-spacing: .06em; }
+.btn-outline:hover { background: var(--ink); color: var(--cream); }
+.side-reviews { margin: 18px 0 0; font-size: 17px; }
+.side-reviews a { color: var(--ink); text-underline-offset: 3px; }
