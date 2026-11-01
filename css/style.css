@@ -290,3 +290,13 @@ a { color: inherit; }
 .btn-outline:hover { background: var(--ink); color: var(--cream); }
 .side-reviews { margin: 18px 0 0; font-size: 17px; }
 .side-reviews a { color: var(--ink); text-underline-offset: 3px; }
+
+.reviews { text-align: center; padding: 20px 0 70px; }
+.reviews .stars { margin-bottom: 4px; }
+.review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; margin-top: 30px; text-align: left; }
+.review { margin: 0; background: var(--white); border-top: 2px solid var(--gold); padding: 28px 26px 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; box-shadow: 0 10px 30px rgba(60, 45, 20, .06); }
+.review blockquote { margin: 0; font-size: 17px; line-height: 28px; }
+.review figcaption { font-family: var(--bold); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.review figcaption span { display: block; font-family: var(--body); font-weight: 400; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5c5850; margin-top: 4px; }
+.reviews-more { margin: 34px 0 0; }
+@media (max-width: 900px) { .review-grid { grid-template-columns: 1fr; gap: 18px; } }
