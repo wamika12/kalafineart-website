@@ -175,5 +175,31 @@ a { color: inherit; }
 /* ---------- Contact page ---------- */
 .home-cta { text-align: center; padding: 0 16px 100px; }
 .contact-page { padding: 10px 0 140px; }
-.contact-page h1 { margin-bottom: 50px; }
+.contact-page h1 { margin-bottom: 6px; }
+.contact-intro { text-align: center; font-size: 19px; margin: 0 16px 44px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 64px; align-items: start; max-width: 1000px; }
+.contact-side { padding-top: 26px; }
+.contact-side .contact-name { text-align: left; }
+.inquiry { display: grid; gap: 18px; min-width: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field span { font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: #5c5850; }
+.field input, .field select, .field textarea {
+  width: 100%; font: 17px/1.4 var(--body); color: var(--ink); background: var(--white);
+  border: 1px solid #d8d1c0; border-radius: 0; padding: 12px 14px; appearance: none;
+}
+.field select { background-image: linear-gradient(45deg, transparent 50%, #555 50%), linear-gradient(135deg, #555 50%, transparent 50%);
+  background-position: calc(100% - 20px) 52%, calc(100% - 14px) 52%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+.field textarea { resize: vertical; min-height: 130px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid #304254; outline-offset: 0; border-color: #304254; }
+.inquiry .btn { justify-self: start; border: 0; cursor: pointer; text-decoration: none; letter-spacing: .06em; }
+.inquiry .btn:disabled { opacity: .6; cursor: default; }
+.form-status { margin: 0; font-size: 17px; min-height: 1.4em; }
+.form-status.ok { color: #2f5d3a; }
+.form-status.error { color: #9b2c2c; }
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  .field-row { grid-template-columns: 1fr; }
+  .contact-side { padding-top: 0; }
+}
 :focus-visible { outline: 2px solid #304254; outline-offset: 2px; }

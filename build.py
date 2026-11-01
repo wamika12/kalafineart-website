@@ -12,6 +12,8 @@ IG = "https://www.instagram.com/kalafineart"
 TT = "https://www.tiktok.com/t/ZP8mBsE6P/"
 PHONE = "+1 425-892-4523"
 EMAIL = "kala.fine.artist@gmail.com"
+# Free key from web3forms.com: inquiries are emailed to the address it was created with
+WEB3FORMS_KEY = "e812bc80-c707-40c6-a6ef-0ff54de255f9"
 
 NAV = [("index.html", "Home"), ("live-wedding-painting.html", "Live Wedding Painting"),
        ("guest-portraits.html", "Guest Portraits"), ("custom-orders.html", "Custom Orders"), ("contact.html", "Contact")]
@@ -325,22 +327,88 @@ custom_schema = [breadcrumb("Custom Orders", "custom-orders.html"), {
 # ---------------------------------------------------------------- CONTACT
 contact_body = f"""
 <section class="contact contact-page" id="contact" aria-labelledby="contact-title">
-  <h1 id="contact-title" class="script title-lg">Contact Details</h1>
-  <div class="contact-grid">
-    <div class="contact-left">
+  <h1 id="contact-title" class="script title-lg">Contact</h1>
+  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day.</p>
+  <div class="contact-layout wrap">
+    <form class="inquiry" id="inquiry" novalidate>
+      <input type="hidden" name="access_key" value="{WEB3FORMS_KEY}">
+      <input type="hidden" name="from_name" value="Kala Fine Art website">
+      <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+      <div class="field-row">
+        <label class="field"><span>Your name *</span><input id="f-name" name="name" required autocomplete="name"></label>
+        <label class="field"><span>Email *</span><input id="f-email" name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="field-row">
+        <label class="field"><span>Phone</span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label class="field"><span>Event date</span><input id="f-date" name="event_date" type="date"></label>
+      </div>
+      <div class="field-row">
+        <label class="field"><span>I’m interested in *</span>
+          <select id="f-service" name="service" required>
+            <option value="">Choose one</option>
+            <option>Live Wedding Painting</option>
+            <option>Guest Portraits</option>
+            <option>Live Ornament Portraits</option>
+            <option>Custom Painting or Portrait</option>
+            <option>Something else</option>
+          </select></label>
+        <label class="field"><span>Venue or city</span><input id="f-venue" name="venue" autocomplete="address-level2"></label>
+      </div>
+      <label class="field"><span>Guest count</span><input id="f-guests" name="guest_count" inputmode="numeric" placeholder="If you know it"></label>
+      <label class="field"><span>Tell me about your event *</span><textarea id="f-message" name="message" rows="5" required></textarea></label>
+      <button class="btn" type="submit" id="f-submit">Send inquiry</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <aside class="contact-side">
       <p class="contact-name">Wamika Bansal</p>
-      <a class="btn" href="{FORM}" target="_blank" rel="noopener">Contact us</a>
-    </div>
-    <ul class="contact-list">
-      <li>{ICONS['phone']}<a href="tel:+14258924523" style="text-decoration:none">{PHONE}</a></li>
-      <li>{ICONS['instagram']}<a href="{IG}" target="_blank" rel="noopener">kalafineart</a></li>
-      <li>{ICONS['tiktok']}<a href="{TT}" target="_blank" rel="noopener">kalafineart</a></li>
-      <li>{ICONS['email']}<a href="mailto:{EMAIL}" style="text-decoration:none">{EMAIL}</a></li>
-    </ul>
+      <ul class="contact-list">
+        <li>{ICONS['phone']}<a href="tel:+14258924523" style="text-decoration:none">{PHONE}</a></li>
+        <li>{ICONS['instagram']}<a href="{IG}" target="_blank" rel="noopener">kalafineart</a></li>
+        <li>{ICONS['tiktok']}<a href="{TT}" target="_blank" rel="noopener">kalafineart</a></li>
+        <li>{ICONS['email']}<a href="mailto:{EMAIL}" style="text-decoration:none">{EMAIL}</a></li>
+      </ul>
+    </aside>
   </div>
 </section>
-
 """
+FORM_SCRIPT = """
+<script>
+(function () {
+  var form = document.getElementById("inquiry");
+  if (!form) return;
+  var status = document.getElementById("form-status");
+  var btn = document.getElementById("f-submit");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var missing = [].filter.call(form.querySelectorAll("[required]"), function (el) { return !el.value.trim(); });
+    var email = form.elements.email;
+    if (missing.length || (email.value && !email.checkValidity())) {
+      status.className = "form-status error";
+      status.textContent = missing.length ? "Please fill in the fields marked with *." : "Please check your email address.";
+      (missing[0] || email).focus();
+      return;
+    }
+    var data = Object.fromEntries(new FormData(form));
+    data.subject = "New inquiry: " + data.service + (data.event_date ? " on " + data.event_date : "") + " from " + data.name;
+    data.replyto = data.email;
+    btn.disabled = true; btn.textContent = "Sending…";
+    status.className = "form-status"; status.textContent = "";
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.success) throw new Error(res.message);
+      form.reset();
+      status.className = "form-status ok";
+      status.textContent = "Thank you! Your inquiry is on its way. I’ll be in touch within a day.";
+    }).catch(function () {
+      status.className = "form-status error";
+      status.textContent = "Sorry, that didn’t send. Please email me at kala.fine.artist@gmail.com or text +1 425-892-4523.";
+    }).finally(function () { btn.disabled = false; btn.textContent = "Send inquiry"; });
+  });
+})();
+</script>"""
 contact_schema = [breadcrumb("Contact", "contact.html"), {
     "@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Kala Fine Art",
     "url": f"{SITE}/contact.html", "about": {"@id": f"{SITE}/#business"}}]
@@ -358,9 +426,9 @@ PAGES = {
     "custom-orders.html": ("Custom Pet, Family & Couple Portrait Paintings | Kala Fine Art",
                    "Commission a custom hand-painted canvas of your pets, family or special milestone, plus custom wedding invitations and personalized stickers by Wamika Bansal.",
                    custom_body, custom_schema),
-    "contact.html": ("Contact Wamika Bansal | Kala Fine Art Live Wedding Painting",
-                   "Contact Wamika Bansal of Kala Fine Art to book live wedding painting, live guest portraits or a custom painting.",
-                   contact_body, contact_schema),
+    "contact.html": ("Book Live Wedding Painting | Contact Kala Fine Art",
+                   "Send an inquiry to Wamika Bansal of Kala Fine Art to book live wedding painting, live guest portraits or a custom painting.",
+                   contact_body, contact_schema, FORM_SCRIPT),
 }
 
 if __name__ == "__main__":
