@@ -237,6 +237,7 @@ wed_body = f"""
 <section class="packages wrap" aria-labelledby="pkg-title">
   <h2 id="pkg-title" class="visually-hidden">Live wedding painting packages and pricing</h2>
 {pkgs_html}
+<p class="page-cta"><a class="btn" href="contact.html">Check your date &amp; send an inquiry</a></p>
 </section>
 """
 wed_schema = [breadcrumb("Live Wedding Painting", "live-wedding-painting.html"), {
@@ -289,6 +290,7 @@ guest_body = f"""
 <section class="tiers wrap" aria-labelledby="tiers-title">
   <h2 id="tiers-title" class="visually-hidden">Live guest portrait packages and pricing</h2>
 {tiers_html}
+<p class="page-cta"><a class="btn" href="contact.html">Book guest portraits for your event</a></p>
 </section>
 <section class="styles wrap" aria-labelledby="styles-title">
   <h2 id="styles-title" class="script title-sm">Portrait Styles</h2>
@@ -332,6 +334,21 @@ custom_body = """
       <li><h2>Personalized Touches:</h2><p>Styled to match your aesthetic, complete with options for loose watercolor, fine detail, or hidden "Easter eggs."</p></li>
     </ul>
   </div>
+</section>
+<section class="custom-more wrap" aria-labelledby="ornament-title">
+  <h2 id="ornament-title" class="script title-sm">Live Ornament Portraits</h2>
+  <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. Gift one painted from a favorite photo, or have guests painted live at your holiday party or winter wedding: the favor they actually keep.</p>
+</section>
+<section class="custom-more wrap" aria-labelledby="custom-how-title">
+  <h2 id="custom-how-title" class="script title-sm">How a Custom Order Works</h2>
+  <ol class="custom-steps">
+    <li><h3>Share your idea</h3><p>Send me a few favorite photos and tell me who or what you’d like painted: a pet, your family, your wedding venue, or a milestone moment.</p></li>
+    <li><h3>Choose your style</h3><p>Together we pick the size, medium and look, from loose watercolor to finely detailed portraiture, plus any hidden “Easter eggs” you’d like woven in.</p></li>
+    <li><h3>I paint it by hand</h3><p>Every piece is painted by hand in my Seattle-area studio, with the same care I bring to live wedding paintings.</p></li>
+    <li><h3>Ready to gift or hang</h3><p>Your finished piece is carefully packaged and ready to give, frame or hang at home.</p></li>
+  </ol>
+  <p class="custom-gifts">Popular as anniversary, wedding, holiday and memorial gifts, and as one-of-a-kind keepsakes of a beloved pet.</p>
+  <p class="page-cta"><a class="btn" href="contact.html">Start a custom order</a></p>
 </section>
 </div>
 """

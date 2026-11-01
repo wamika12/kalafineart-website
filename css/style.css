@@ -216,3 +216,17 @@ a { color: inherit; }
 .page-sub { text-align: center; font-size: 18px; margin: 4px 0 0; color: #5c5850; }
 .contact-base { font-size: 15px; color: #5c5850; letter-spacing: .02em; }
 @media (max-width: 900px) { .where-grid { grid-template-columns: 1fr; gap: 0; } }
+
+/* ---------- Calls to action & custom orders extras ---------- */
+.page-cta { text-align: center; margin: 48px 0 0; }
+.page-cta .btn { text-decoration: none; letter-spacing: .06em; }
+.custom-more { max-width: 900px; padding: 30px 0 30px; text-align: center; }
+.custom-more > p { font-size: 19px; line-height: 30px; margin: 12px auto 0; max-width: 720px; }
+.custom-steps { list-style: none; counter-reset: s; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 40px; text-align: left; }
+.custom-steps li { counter-increment: s; border-top: 1px solid var(--rule); padding-top: 16px; }
+.custom-steps h3 { margin: 0 0 6px; font-family: var(--bold); font-weight: 700; font-size: 19px; }
+.custom-steps h3::before { content: counter(s) ". "; }
+.custom-steps p { margin: 0; font-size: 17px; line-height: 27px; }
+.custom-gifts { font-size: 17px !important; color: #5c5850; margin-top: 30px !important; }
+.custom-more:last-of-type { padding-bottom: 100px; }
+@media (max-width: 900px) { .custom-steps { grid-template-columns: 1fr; } }
