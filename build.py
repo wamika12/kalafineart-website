@@ -510,7 +510,7 @@ holiday_body = """
   <div class="hol-gallery">
     <figure><img src="assets/images/ornament-portraits-on-tree.webp" width="1000" height="1250" loading="lazy"
          alt="Five hand-painted ornament portraits of people and pets hanging on a Christmas tree with red ribbons"><figcaption>Everyone on the tree</figcaption></figure>
-    <figure><img src="assets/images/cat-ornament-portrait-on-tree.webp" width="1000" height="1250" loading="lazy"
+    <figure><img src="assets/images/cat-ornament-portrait-on-tree.webp" width="1020" height="1275" loading="lazy"
          alt="Close-up of a watercolor cat portrait ornament hanging on a Christmas tree"><figcaption>Pets, too</figcaption></figure>
     <figure><img src="assets/images/ornament-custom-text-back.webp" width="1000" height="1250" loading="lazy"
          alt="Back of a clear ornament with custom handwritten text"><figcaption>Custom text, front or back</figcaption></figure>
