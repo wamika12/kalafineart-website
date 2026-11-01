@@ -16,7 +16,7 @@ EMAIL = "kala.fine.artist@gmail.com"
 WEB3FORMS_KEY = "e812bc80-c707-40c6-a6ef-0ff54de255f9"
 
 NAV = [("index.html", "Home"), ("live-wedding-painting.html", "Live Wedding Painting"),
-       ("guest-portraits.html", "Guest Portraits"), ("custom-orders.html", "Custom Orders"), ("contact.html", "Contact")]
+       ("guest-portraits.html", "Guest Portraits"), ("custom-orders.html", "Custom Orders"), ("holiday-specials.html", "Holiday Specials"), ("contact.html", "Contact")]
 
 DIVIDER = ('<svg class="divider" viewBox="0 0 104 8" aria-hidden="true"><path d="M0 4H40M64 4H104" '
            'stroke="#555" stroke-width=".8"/><path d="M40 4c4-4 8-4 12 0c4 4 8 4 12 0M46 4c2-2 4-2 6 0c2 2 4 2 6 0" '
@@ -297,10 +297,8 @@ guest_body = f"""
 </section>
 <section class="ornaments wrap" id="ornaments" aria-labelledby="orn-title">
   <h2 id="orn-title" class="script title-sm">Live Ornament Portraits</h2>
-  <p class="orn-lead">Guest portraits painted live and sealed in keepsake ornaments: the favor guests hang on their tree every year. Perfect for winter weddings and holiday parties.</p>
-  <p class="orn-detail">Every ornament is packaged on-site by my assistant, ready for guests to take home.</p>
-  <p class="orn-note">Ornament styles vary depending on availability. Please book at least 3 weeks before your event. Reach out for current options and pricing.</p>
-  <p class="page-cta"><a class="btn" href="contact.html">Book a free consultation</a></p>
+  <p class="orn-lead">Guest portraits painted live and sealed in keepsake ornaments: the favor guests hang on their tree every year.</p>
+  <p class="page-cta"><a class="btn" href="holiday-specials.html#ornament-portraits">See Holiday Specials</a></p>
 </section>
 <section class="styles wrap" aria-labelledby="styles-title">
   <h2 id="styles-title" class="script title-sm">Portrait Styles</h2>
@@ -346,9 +344,8 @@ custom_body = """
   </div>
 </section>
 <section class="custom-more wrap" aria-labelledby="ornament-title">
-  <h2 id="ornament-title" class="script title-sm">Live Ornament Portraits</h2>
-  <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. Gift one painted from a favorite photo, or have guests painted live at your holiday party or winter wedding: the favor they actually keep.</p>
-  <p class="orn-note">Ornament styles vary depending on availability. Please order at least 3 weeks ahead. Reach out for current options and pricing, or <a href="guest-portraits.html#ornaments">see live ornament portraits for events</a>.</p>
+  <h2 id="ornament-title" class="script title-sm">Ornament Portraits</h2>
+  <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. <a href="holiday-specials.html#gift-ornaments">See this season’s Holiday Specials</a>.</p>
 </section>
 <section class="custom-more wrap" aria-labelledby="custom-how-title">
   <h2 id="custom-how-title" class="script title-sm">How a Custom Order Works</h2>
@@ -456,6 +453,77 @@ contact_schema = [breadcrumb("Contact", "contact.html"), {
     "@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Kala Fine Art",
     "url": f"{SITE}/contact.html", "about": {"@id": f"{SITE}/#business"}}]
 
+# ---------------------------------------------------------------- HOLIDAY SPECIALS
+# Seasonal offers. Swap sections in and out of holiday_body each season.
+holiday_body = """
+<header class="page-title wrap"><h1 class="script title-lg">Holiday Specials</h1>
+  <p class="page-sub">Seasonal keepsakes, painted by hand in my Seattle-area studio and live at your celebration</p></header>
+
+<section class="hol-feature wrap" id="ornament-portraits" aria-labelledby="hol-orn-title">
+  <div class="hol-reel">
+    <video src="assets/videos/ornament-portraits-reel.mp4" poster="assets/images/ornament-reel-poster.webp"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="Live Ornament Portraits: watercolor portraits of family and pets painted and hung on a Christmas tree"></video>
+  </div>
+  <div class="hol-copy">
+    <p class="eyebrow">New this season</p>
+    <h2 id="hol-orn-title" class="script title-sm">Live Ornament Portraits</h2>
+    <p class="hol-lead">Hand-painted watercolor portraits of the people (and pets) you love, sealed in a keepsake ornament made to hang on the tree every year.</p>
+    <div class="hol-option" id="event-ornaments">
+      <h3>For your event</h3>
+      <p>I paint your guests live at your winter wedding or holiday party, and each portrait is sealed in a keepsake ornament: the favor guests actually keep. My assistant packages every ornament on-site, so guests take theirs home the same night.</p>
+    </div>
+    <div class="hol-option" id="gift-ornaments">
+      <h3>As a gift</h3>
+      <p>Send me a favorite photo of your family, your partner or your pet, and I’ll paint it into an ornament to give this season. Lovely for parents, newlyweds, first Christmases and pet lovers.</p>
+    </div>
+    <div class="hol-option">
+      <h3>Personalized for you</h3>
+      <p>Add custom text, such as names, a date or a short message, on the front or back of your ornament, depending on the style.</p>
+    </div>
+    <p class="hol-cta"><a class="btn" href="contact.html">Request ornament options</a></p>
+  </div>
+</section>
+
+<section class="hol-gallery-wrap wrap" aria-label="Ornament portrait gallery">
+  <div class="hol-gallery">
+    <figure><img src="assets/images/ornament-portraits-on-tree.webp" width="1000" height="1250" loading="lazy"
+         alt="Five hand-painted ornament portraits of people and pets hanging on a Christmas tree with red ribbons"><figcaption>Everyone on the tree</figcaption></figure>
+    <figure><img src="assets/images/cat-ornament-portrait-on-tree.webp" width="1000" height="1250" loading="lazy"
+         alt="Close-up of a watercolor cat portrait ornament hanging on a Christmas tree"><figcaption>Pets, too</figcaption></figure>
+    <figure><img src="assets/images/ornament-custom-text-back.webp" width="1000" height="1250" loading="lazy"
+         alt="Back of a clear ornament with custom handwritten text"><figcaption>Custom text, front or back</figcaption></figure>
+    <figure><video src="assets/videos/ornament-painting-process.mp4" poster="assets/images/ornament-painting-process-poster.webp"
+         autoplay muted loop playsinline preload="metadata" aria-label="Wamika painting a cat ornament portrait in watercolor"></video><figcaption>Painted by hand</figcaption></figure>
+  </div>
+</section>
+
+<section class="hol-how wrap" aria-labelledby="hol-how-title">
+  <h2 id="hol-how-title" class="script title-sm">How It Works</h2>
+  <ol class="custom-steps hol-steps">
+    <li><h3>Reach out early</h3><p>Please book at least 3 weeks ahead so there’s time to source your ornaments.</p></li>
+    <li><h3>Choose your ornaments</h3><p>Ornament styles vary depending on availability. I’ll share this season’s options and any custom text you’d like.</p></li>
+    <li><h3>I paint them by hand</h3><p>Live at your event, or in my studio from your favorite photos.</p></li>
+    <li><h3>Ready to hang</h3><p>Each ornament is sealed, packaged and ready to give or take home.</p></li>
+  </ol>
+</section>
+
+<section class="hol-close" aria-label="Book ornament portraits">
+  <div class="hol-close-inner wrap">
+    <img src="assets/images/watercolor-ornament-portraits-before-sealing.webp" width="1000" height="1250" loading="lazy"
+         alt="Three round watercolor portraits of a man and two cats before being sealed into ornaments">
+    <div>
+      <h2 class="script title-sm">Make this year’s favorite gift</h2>
+      <p>Holiday dates fill quickly. Reach out at least 3 weeks before your event or gifting date, and I’ll share this season’s ornament options.</p>
+      <p class="hol-cta"><a class="btn" href="contact.html">Request ornament options</a></p>
+    </div>
+  </div>
+</section>
+"""
+holiday_schema = [breadcrumb("Holiday Specials", "holiday-specials.html"), {
+    "@context": "https://schema.org", "@type": "Service", "serviceType": "Custom hand-painted ornament portraits",
+    "name": "Live Ornament Portraits", "provider": {"@id": f"{SITE}/#business"}, "areaServed": AREAS}]
+
 PAGES = {
     "index.html": ("Live Wedding Painter in Seattle, WA | Kala Fine Art by Wamika Bansal",
                    "Live wedding painting and guest portraits by Wamika Bansal, a Seattle-area live wedding painter serving Seattle, Bellevue, the Puget Sound, Leavenworth and the San Juan Islands.",
@@ -469,6 +537,9 @@ PAGES = {
     "custom-orders.html": ("Custom Pet, Family & Couple Portraits, Seattle | Kala Fine Art",
                    "Commission a custom hand-painted canvas of your pets, family or special milestone, plus custom wedding invitations and personalized stickers by Wamika Bansal.",
                    custom_body, custom_schema),
+    "holiday-specials.html": ("Custom Ornament Portraits & Holiday Favors, Seattle | Kala Fine Art",
+                   "Hand-painted ornament portraits of your family, partner or pet, and live ornament portraits as holiday party and winter wedding favors. Seattle area. Book 3 weeks ahead.",
+                   holiday_body, holiday_schema),
     "contact.html": ("Book Live Wedding Painting | Contact Kala Fine Art",
                    "Send an inquiry to Wamika Bansal of Kala Fine Art to book live wedding painting, live guest portraits or a custom painting.",
                    contact_body, contact_schema, FORM_SCRIPT),
