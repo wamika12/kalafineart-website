@@ -173,13 +173,13 @@ home_body = f"""
 
 <section class="where wrap" aria-labelledby="where-title">
   <h2 id="where-title" class="script title-md">Where I Paint</h2>
-  <p class="where-intro">I’m a Seattle-area live wedding painter, and I bring my easel to venues all over Washington.</p>
+  <p class="where-intro">I’m a Seattle-area live wedding painter, and I bring my easel to venues all over Washington. Here are a few favorite places I paint:</p>
   <div class="where-grid">
-    <div><h3>Seattle &amp; the Eastside</h3><p>Seattle · Bellevue · Kirkland · Redmond · Mercer Island · Woodinville</p></div>
-    <div><h3>Greater Puget Sound</h3><p>Tacoma · Everett · Snohomish · Gig Harbor · Bainbridge Island</p></div>
-    <div><h3>Washington Getaways</h3><p>Leavenworth · San Juan Islands · Skagit Valley · Mount Rainier · Lake Chelan</p></div>
+    <div><h3>Seattle &amp; the Eastside</h3><p>Seattle · Bellevue · Kirkland · Redmond · Mercer Island · Woodinville · and nearby</p></div>
+    <div><h3>Greater Puget Sound</h3><p>Tacoma · Everett · Snohomish · Gig Harbor · Bainbridge Island · and nearby</p></div>
+    <div><h3>Washington Getaways</h3><p>Leavenworth · San Juan Islands · Skagit Valley · Mount Rainier · Lake Chelan · and more</p></div>
   </div>
-  <p class="where-note">Planning a wedding farther away? I travel worldwide. Travel fees may apply depending on the distance.</p>
+  <p class="where-note">Don’t see your town? I’ll come to you anywhere in Washington and travel worldwide. Travel fees may apply depending on the distance.</p>
 </section>
 
 <section class="faq" aria-labelledby="faq-title">
