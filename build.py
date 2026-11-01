@@ -531,7 +531,7 @@ holiday_body = """
 
 <section class="hol-close" aria-label="Book ornament portraits">
   <div class="hol-close-inner wrap">
-    <img src="assets/images/watercolor-ornament-portraits-before-sealing.webp" width="1000" height="1250" loading="lazy"
+    <img src="assets/images/watercolor-ornament-portraits-before-sealing.webp" width="1400" height="1081" loading="lazy"
          alt="Three round watercolor portraits of a man and two cats before being sealed into ornaments">
     <div>
       <h2 class="script title-sm">Make this year’s favorite gift</h2>

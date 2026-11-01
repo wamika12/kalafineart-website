@@ -268,7 +268,7 @@ a { color: inherit; }
 .hol-how { max-width: 900px; text-align: center; padding: 10px 0 80px; }
 .hol-steps { margin-top: 30px; }
 .hol-close { background: var(--white); padding-block: 70px; }
-.hol-close-inner { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 60px; align-items: center; max-width: 960px; }
+.hol-close-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 56px; align-items: center; max-width: 1080px; }
 .hol-close-inner img { width: 100%; box-shadow: 0 14px 40px rgba(60, 45, 20, .14); }
 .hol-close-inner .script { text-align: left; }
 .hol-close-inner p { font-size: 18px; line-height: 29px; }
@@ -279,7 +279,7 @@ a { color: inherit; }
   .hol-copy .script, .hol-close-inner .script { text-align: center; }
   .hol-copy .eyebrow { text-align: center; margin-bottom: 14px; }
   .hol-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .hol-close-inner img { max-width: 320px; margin: 0 auto; }
+  .hol-close-inner img { max-width: 100%; }
 }
 
 /* ---------- Reviews ---------- */
