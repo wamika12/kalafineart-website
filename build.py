@@ -100,6 +100,8 @@ def page(slug, title, description, body, schema=None, og_image="assets/images/og
 """
 
 
+AREAS = ["Seattle", "Bellevue", "Kirkland", "Redmond", "Mercer Island", "Woodinville", "Tacoma", "Everett", "Snohomish", "Gig Harbor", "Bainbridge Island", "Leavenworth", "San Juan Islands", "Skagit Valley", "Mount Rainier", "Lake Chelan", "Washington"]
+
 # ---------------------------------------------------------------- shared schema
 BUSINESS = {
     "@context": "https://schema.org", "@type": "ProfessionalService",
@@ -109,14 +111,14 @@ BUSINESS = {
     "logo": f"{SITE}/assets/images/kala-fine-art-logo.png",
     "telephone": PHONE, "email": EMAIL,
     "founder": {"@type": "Person", "name": "Wamika Bansal", "jobTitle": "Live Wedding Painter"},
-    "address": {"@type": "PostalAddress", "addressRegion": "WA", "addressCountry": "US"},
-    "areaServed": [{"@type": "State", "name": "Washington"}, {"@type": "State", "name": "Oregon"}, "Worldwide"],
+    "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US"},
+    "areaServed": AREAS,
     "priceRange": "$$$", "sameAs": [IG, TT],
 }
 
 FAQS = [
     ("Do you travel for weddings?",
-     "I am based in Washington state but happily travel for weddings and events worldwide. Travel and accommodation fees may apply for destinations outside my local area."),
+     "I’m based in the Seattle area and regularly paint weddings across Seattle and the Eastside, the greater Puget Sound region, and Washington getaways like Leavenworth, the San Juan Islands and Lake Chelan. I happily travel for weddings and events worldwide; travel and accommodation fees may apply depending on the distance."),
     ("What space do you need to paint?",
      "I require a minimum 5 ft x 5 ft space with ample lighting and cover to ensure the best painting experience."),
     ("Can you include more than just the couple?",
@@ -141,32 +143,43 @@ home_body = f"""
 </header>
 
 <section class="about wrap" aria-labelledby="about-title">
-  <img class="photo" src="assets/images/wamika-bansal-live-wedding-painter.jpg" width="1800" height="2400"
+  <img class="photo" src="assets/images/wamika-bansal-live-wedding-painter.webp" width="1050" height="1400"
        alt="Wamika Bansal, live wedding painter, standing in a garden surrounded by doves" fetchpriority="high">
   <div>
     <h2 id="about-title" class="script title-md">About me</h2>
     <p>Hello, I’m Wamika Bansal — a live wedding painter who transforms your most meaningful moments into timeless works of art.</p>
-    <p>Based in Washington state and serving couples worldwide, I create romantic, fine art keepsakes painted on-site during your celebration. My paintings beautifully complement your wedding photos and film, becoming heirlooms you’ll treasure for a lifetime.</p>
+    <p>Based in the Seattle area and serving couples across Washington and worldwide, I create romantic, fine art keepsakes painted on-site during your celebration. My paintings beautifully complement your wedding photos and film, becoming heirlooms you’ll treasure for a lifetime.</p>
     <p>What sets my work apart is the intimacy I bring to each piece. I capture not just the big moments but also the subtle details — from the bouquet your grandmother grew to the glow of golden hour. I also hide thoughtful “easter eggs” within the artwork, secret touches only the couple knows to look for, making every painting uniquely personal.</p>
   </div>
 </section>
 
 <section aria-label="Portfolio">
   <div class="gallery-row one wrap">
-    <figure><img src="assets/images/live-wedding-painting-oregon-city.jpg" width="1314" height="1600" loading="lazy"
+    <figure><img src="assets/images/live-wedding-painting-oregon-city.webp" width="1150" height="1400" loading="lazy"
          alt="Live wedding ceremony painting of a bride and groom under a tree with lavender drapes in Oregon City, Oregon"></figure>
-    <figure><img src="assets/images/live-wedding-painting-mercer-island.jpg" width="1599" height="1213" loading="lazy"
+    <figure><img src="assets/images/live-wedding-painting-mercer-island.webp" width="1400" height="1062" loading="lazy"
          alt="Live wedding painting of a couple's first kiss on a garden deck on Mercer Island, Washington">
       <figcaption class="caption">First: Oregon City, OR<br>Second: Mercer Island, WA</figcaption></figure>
   </div>
   <div class="gallery-row two wrap">
-    <figure><img src="assets/images/mount-rainier-couple-painting.jpg" width="1599" height="1240" loading="lazy"
+    <figure><img src="assets/images/mount-rainier-couple-painting.webp" width="1400" height="1086" loading="lazy"
          alt="Custom painting of a couple and their dog in front of Mount Rainier, Washington">
       <figcaption class="caption center">Mount Rainier, WA</figcaption></figure>
-    <figure><img src="assets/images/skagit-valley-tulip-engagement-painting.jpg" width="1250" height="1600" loading="lazy"
+    <figure><img src="assets/images/skagit-valley-tulip-engagement-painting.webp" width="1094" height="1400" loading="lazy"
          alt="Engagement painting of a couple embracing in the Skagit Valley tulip fields">
       <figcaption class="caption center">Skagit Valley Tulip Farm Engagement</figcaption></figure>
   </div>
+</section>
+
+<section class="where wrap" aria-labelledby="where-title">
+  <h2 id="where-title" class="script title-md">Where I Paint</h2>
+  <p class="where-intro">I’m a Seattle-area live wedding painter, and I bring my easel to venues all over Washington.</p>
+  <div class="where-grid">
+    <div><h3>Seattle &amp; the Eastside</h3><p>Seattle · Bellevue · Kirkland · Redmond · Mercer Island · Woodinville</p></div>
+    <div><h3>Greater Puget Sound</h3><p>Tacoma · Everett · Snohomish · Gig Harbor · Bainbridge Island</p></div>
+    <div><h3>Washington Getaways</h3><p>Leavenworth · San Juan Islands · Skagit Valley · Mount Rainier · Lake Chelan</p></div>
+  </div>
+  <p class="where-note">Planning a wedding farther away? I travel worldwide. Travel fees may apply depending on the distance.</p>
 </section>
 
 <section class="faq" aria-labelledby="faq-title">
@@ -180,7 +193,7 @@ home_body = f"""
   <a class="btn" href="contact.html">Contact me</a>
 </section>
 
-<img class="full-bleed-photo" src="assets/images/live-painter-at-easel.jpg" width="1200" height="1600" loading="lazy"
+<img class="full-bleed-photo" src="assets/images/live-painter-at-easel.webp" width="1050" height="1400" loading="lazy"
      alt="Wamika Bansal setting up her easel and paints for a live outdoor painting">
 """
 faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -206,7 +219,7 @@ pkgs_html = f"\n{DIVIDER}\n".join(
 wed_body = f"""
 <header class="page-title wrap"><h1 class="script title-lg">Live Wedding Painting</h1></header>
 <section class="intro-split wrap">
-  <img src="assets/images/live-wedding-painting-artist-at-work.jpg" width="1599" height="1066" fetchpriority="high"
+  <img src="assets/images/live-wedding-painting-artist-at-work.webp" width="1400" height="933" fetchpriority="high"
        alt="Live wedding painter Wamika Bansal painting a canvas on an easel outdoors among the trees">
   <ul class="bullets">
     <li>Hidden "Easter Eggs": Inspired by the Mehendi tradition of hiding the groom’s name in henna for him to discover, I weave secret symbols and personal touches into your canvas, meaningful details only the two of you know to look for.</li>
@@ -217,7 +230,7 @@ wed_body = f"""
 <section class="how bg-white" aria-labelledby="how-title">
   <div class="wrap" style="padding-top:20px">
     <h2 id="how-title" class="script title-sm">How it works</h2>
-    <p class="lead">A Bespoke Live Painting Experience for Your Wedding Day from the first brushstroke to the final flourish, your love story is transformed into a timeless heirloom.</p>
+    <p class="lead">A Bespoke Live Painting Experience for Your Wedding Day from the first brushstroke to the final flourish, your love story is transformed into a timeless heirloom. I paint live at weddings across Seattle, the Eastside and the Puget Sound region, at Washington destinations like Leavenworth and the San Juan Islands, and beyond.</p>
 {steps_html(WED_STEPS)}
   </div>
 </section>
@@ -229,7 +242,7 @@ wed_body = f"""
 wed_schema = [breadcrumb("Live Wedding Painting", "live-wedding-painting.html"), {
     "@context": "https://schema.org", "@type": "Service", "serviceType": "Live wedding painting",
     "name": "Live Wedding Painting", "provider": {"@id": f"{SITE}/#business"},
-    "areaServed": ["Washington", "Oregon", "Worldwide"],
+    "areaServed": AREAS,
     "offers": [{"@type": "Offer", "name": n, "price": p, "priceCurrency": "USD", "description": f"{d} {s}"}
                for n, p, d, s in WED_PKGS]}]
 
@@ -252,12 +265,13 @@ tiers_html = f"\n{DIVIDER}\n".join(
     f'<div class="tier"><h3 class="pkg-name small">{n} ~ {p}</h3><p>{c}{"<br>" + x if x else ""}</p></div>'
     for n, p, _, c, x in TIERS)
 guest_body = f"""
-<header class="page-title wrap"><h1 class="script title-lg">Guest Portraits</h1></header>
+<header class="page-title wrap"><h1 class="script title-lg">Guest Portraits</h1>
+  <p class="page-sub">Live wedding and event guest portraits in Seattle and across Washington</p></header>
 <section class="intro-split guest-split wrap">
   <div class="tilted">
-    <img class="t1" src="assets/images/guest-portrait-sketch-from-phone.png" width="656" height="840" fetchpriority="high"
+    <img class="t1" src="assets/images/guest-portrait-sketch-from-phone.webp" width="656" height="840" fetchpriority="high"
          alt="Live guest portrait being sketched from a photo on a phone">
-    <img class="t2" src="assets/images/guest-portrait-watercolor-couple.png" width="946" height="1378"
+    <img class="t2" src="assets/images/guest-portrait-watercolor-couple.webp" width="946" height="1378"
          alt="Finished watercolor guest portrait of two women with pink hearts">
   </div>
   <ul class="bullets justify">
@@ -279,11 +293,11 @@ guest_body = f"""
 <section class="styles wrap" aria-labelledby="styles-title">
   <h2 id="styles-title" class="script title-sm">Portrait Styles</h2>
   <div class="style-grid">
-    <img src="assets/images/guest-portrait-style-full-body-watercolor.png" width="1092" height="1599" loading="lazy"
+    <img src="assets/images/guest-portrait-style-full-body-watercolor.webp" width="956" height="1400" loading="lazy"
          alt="Full-body watercolor fashion sketch guest portrait of a couple in formal wear">
-    <img src="assets/images/guest-portrait-style-detailed.jpg" width="1147" height="1599" loading="lazy"
+    <img src="assets/images/guest-portrait-style-detailed.webp" width="1004" height="1400" loading="lazy"
          alt="Detailed zoomed-in guest portrait of a couple with pink hearts">
-    <img src="assets/images/guest-portrait-style-faceless.jpg" width="1075" height="1599" loading="lazy"
+    <img src="assets/images/guest-portrait-style-faceless.webp" width="941" height="1400" loading="lazy"
          alt="Loose watercolor faceless guest portrait of a couple">
   </div>
   <div class="style-grid">
@@ -299,7 +313,7 @@ guest_body = f"""
 guest_schema = [breadcrumb("Guest Portraits", "guest-portraits.html"), {
     "@context": "https://schema.org", "@type": "Service", "serviceType": "Live event guest portraits",
     "name": "Live Guest Portraits", "provider": {"@id": f"{SITE}/#business"},
-    "areaServed": ["Washington", "Oregon", "Worldwide"],
+    "areaServed": AREAS,
     "offers": [{"@type": "Offer", "name": n, "price": v, "priceCurrency": "USD",
                 "description": c + (f". {x}" if x else "")} for n, _, v, c, x in TIERS]}]
 
@@ -309,11 +323,12 @@ custom_body = """
 <header class="page-title wrap"><h1 class="script title-lg">Custom Orders</h1></header>
 <section class="custom">
   <div class="custom-split">
-    <img src="assets/images/custom-portrait-painting.png" width="982" height="1342" fetchpriority="high"
+    <img src="assets/images/custom-portrait-painting.webp" width="982" height="1342" fetchpriority="high"
          alt="Custom hand-painted canvas portrait of a couple on an easel">
     <ul class="custom-list">
       <li><h2>Custom Canvases &amp; Portraits:</h2><p>Transforming beloved pets, family photos, and special milestones into hand-painted canvas heirlooms.</p></li>
       <li><h2>Stationery &amp; Prints:</h2><p>Custom wedding invitations and fun, personalized stickers crafted from your favorite themes or photos.</p></li>
+      <li><h2>Made for You, Wherever You Are:</h2><p>Every piece is painted by hand in my Seattle-area studio from your favorite photos, so you can commission one from anywhere.</p></li>
       <li><h2>Personalized Touches:</h2><p>Styled to match your aesthetic, complete with options for loose watercolor, fine detail, or hidden "Easter eggs."</p></li>
     </ul>
   </div>
@@ -328,7 +343,7 @@ custom_schema = [breadcrumb("Custom Orders", "custom-orders.html"), {
 contact_body = f"""
 <section class="contact contact-page" id="contact" aria-labelledby="contact-title">
   <h1 id="contact-title" class="script title-lg">Contact</h1>
-  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day.</p>
+  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day.<br><span class="contact-base">Based in the Seattle area · Painting across Washington and beyond</span></p>
   <div class="contact-layout wrap">
     <form class="inquiry" id="inquiry" novalidate>
       <input type="hidden" name="access_key" value="{WEB3FORMS_KEY}">
@@ -414,16 +429,16 @@ contact_schema = [breadcrumb("Contact", "contact.html"), {
     "url": f"{SITE}/contact.html", "about": {"@id": f"{SITE}/#business"}}]
 
 PAGES = {
-    "index.html": ("Live Wedding Painter in Washington | Kala Fine Art by Wamika Bansal",
-                   "Live wedding painting and live guest portraits by Wamika Bansal, a Washington-based wedding painter serving Seattle, the Pacific Northwest and couples worldwide.",
+    "index.html": ("Live Wedding Painter in Seattle, WA | Kala Fine Art by Wamika Bansal",
+                   "Live wedding painting and guest portraits by Wamika Bansal, a Seattle-area live wedding painter serving Seattle, Bellevue, the Puget Sound, Leavenworth and the San Juan Islands.",
                    home_body, [BUSINESS, faq_schema]),
-    "live-wedding-painting.html": ("Live Wedding Painting Packages & Pricing | Kala Fine Art",
-                   "Bespoke live wedding paintings created on-site at your ceremony or reception in Washington, Oregon and worldwide. Silver, Gold and Platinum packages from $3,000.",
+    "live-wedding-painting.html": ("Live Wedding Painting in Seattle & Washington | Packages & Pricing",
+                   "Bespoke live wedding paintings created on-site at your Seattle, Eastside or Washington destination wedding. Silver, Gold and Platinum packages from $3,000.",
                    wed_body, wed_schema),
-    "guest-portraits.html": ("Live Guest Portraits for Weddings & Events | Kala Fine Art",
-                   "Live wedding guest portraits on custom stationery — a one-of-a-kind favor every guest takes home. Watercolor, detailed and fashion-sketch styles. Packages from $2,000.",
+    "guest-portraits.html": ("Live Guest Portraits for Seattle Weddings & Events | Kala Fine Art",
+                   "Live guest portraits for Seattle-area weddings and events, on custom stationery — a one-of-a-kind favor every guest takes home. Watercolor, detailed and fashion-sketch styles. Packages from $2,000.",
                    guest_body, guest_schema),
-    "custom-orders.html": ("Custom Pet, Family & Couple Portrait Paintings | Kala Fine Art",
+    "custom-orders.html": ("Custom Pet, Family & Couple Portraits, Seattle | Kala Fine Art",
                    "Commission a custom hand-painted canvas of your pets, family or special milestone, plus custom wedding invitations and personalized stickers by Wamika Bansal.",
                    custom_body, custom_schema),
     "contact.html": ("Book Live Wedding Painting | Contact Kala Fine Art",
