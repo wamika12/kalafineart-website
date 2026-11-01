@@ -118,7 +118,7 @@ BUSINESS = {
 
 FAQS = [
     ("Do you travel for weddings?",
-     "I’m based in the Seattle area and regularly paint weddings across Seattle and the Eastside, the greater Puget Sound region, and Washington getaways like Leavenworth, the San Juan Islands and Lake Chelan. I happily travel for weddings and events worldwide; travel and accommodation fees may apply depending on the distance."),
+     "Yes! I’m based in the Seattle area and paint weddings all over Washington. I also travel worldwide; travel fees may apply depending on the distance."),
     ("What space do you need to paint?",
      "I require a minimum 5 ft x 5 ft space with ample lighting and cover to ensure the best painting experience."),
     ("Can you include more than just the couple?",
@@ -230,7 +230,7 @@ wed_body = f"""
 <section class="how bg-white" aria-labelledby="how-title">
   <div class="wrap" style="padding-top:20px">
     <h2 id="how-title" class="script title-sm">How it works</h2>
-    <p class="lead">A Bespoke Live Painting Experience for Your Wedding Day from the first brushstroke to the final flourish, your love story is transformed into a timeless heirloom. I paint live at weddings across Seattle, the Eastside and the Puget Sound region, at Washington destinations like Leavenworth and the San Juan Islands, and beyond.</p>
+    <p class="lead">A Bespoke Live Painting Experience for Your Wedding Day from the first brushstroke to the final flourish, your love story is transformed into a timeless heirloom. I paint weddings across Seattle and all of Washington.</p>
 {steps_html(WED_STEPS)}
   </div>
 </section>
