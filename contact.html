@@ -32,7 +32,7 @@
 
 <section class="contact contact-page" id="contact" aria-labelledby="contact-title">
   <h1 id="contact-title" class="script title-lg">Contact</h1>
-  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day.<br><span class="contact-base">Based in the Seattle area · Painting across Washington and beyond</span></p>
+  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day to set up your free consultation.<br><span class="contact-base">Based in the Seattle area · Painting across Washington and beyond</span></p>
   <div class="contact-layout wrap">
     <form class="inquiry" id="inquiry" novalidate>
       <input type="hidden" name="access_key" value="e812bc80-c707-40c6-a6ef-0ff54de255f9">
@@ -60,7 +60,7 @@
       </div>
       <label class="field"><span>Guest count</span><input id="f-guests" name="guest_count" inputmode="numeric" placeholder="If you know it"></label>
       <label class="field"><span>Tell me about your event *</span><textarea id="f-message" name="message" rows="5" required></textarea></label>
-      <button class="btn" type="submit" id="f-submit">Send inquiry</button>
+      <button class="btn" type="submit" id="f-submit">Request a free consultation</button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
     <aside class="contact-side">
@@ -133,7 +133,7 @@
     }).catch(function () {
       status.className = "form-status error";
       status.textContent = "Sorry, that didn’t send. Please email me at kala.fine.artist@gmail.com or text +1 425-892-4523.";
-    }).finally(function () { btn.disabled = false; btn.textContent = "Send inquiry"; });
+    }).finally(function () { btn.disabled = false; btn.textContent = "Request a free consultation"; });
   });
 })();
 </script>

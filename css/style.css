@@ -230,3 +230,17 @@ a { color: inherit; }
 .custom-gifts { font-size: 17px !important; color: #5c5850; margin-top: 30px !important; }
 .custom-more:last-of-type { padding-bottom: 100px; }
 @media (max-width: 900px) { .custom-steps { grid-template-columns: 1fr; } }
+
+/* ---------- Pricing ---------- */
+.pkg-intro { font-size: 17px; line-height: 27px; max-width: 640px; margin: 10px auto 30px; }
+.price { font-family: var(--bold); font-weight: 700; font-size: 20px; letter-spacing: .02em; margin: 8px 0 0 !important; }
+.price.small { font-size: 18px; margin-top: 4px !important; }
+.package .price + p { margin-top: 10px; }
+.tiers h2, .packages h2 { margin-bottom: 6px; }
+.ornaments { text-align: center; max-width: 760px; padding: 20px 0 70px; }
+.orn-lead { font-size: 19px; line-height: 30px; margin: 12px auto 16px; }
+.orn-detail { font-size: 17px; margin: 8px 0 0; }
+.orn-upgrades { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; font-size: 17px; }
+.orn-upgrades strong { font-family: var(--bold); }
+.orn-note { font-size: 15px; color: #5c5850; margin: 14px 0 0; }
+.custom-more .price { margin-top: 16px !important; }

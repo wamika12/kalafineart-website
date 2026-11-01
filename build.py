@@ -118,11 +118,13 @@ BUSINESS = {
 
 FAQS = [
     ("Do you travel for weddings?",
-     "Yes! I’m based in the Seattle area and paint weddings all over Washington. I also travel worldwide; travel fees may apply depending on the distance."),
+     "Yes! I’m based in the Seattle area and paint weddings all over Washington. Travel is free within 50 miles of Seattle. I also travel worldwide; travel fees may apply depending on the distance."),
     ("What space do you need to paint?",
      "I require a minimum 5 ft x 5 ft space with ample lighting and cover to ensure the best painting experience."),
     ("Can you include more than just the couple?",
      "Absolutely. I can incorporate family members, wedding party, or even pets into the painting. Additional fees apply depending on the number of subjects."),
+    ("Can I book live painting and guest portraits for the same event?",
+     "Each event books one service, since I can’t paint the main canvas and guest portraits at the same time. For multi-day celebrations, such as a sangeet or mehendi followed by the wedding, you can book both on different days."),
     ("Do you paint other events or from photos?",
      "Yes, I love capturing all types of celebrations beyond weddings. I can also create a painting after the event using professional photos."),
 ]
@@ -179,7 +181,7 @@ home_body = f"""
     <div><h3>Greater Puget Sound</h3><p>Tacoma · Everett · Snohomish · Gig Harbor · Bainbridge Island · and nearby</p></div>
     <div><h3>Washington Getaways</h3><p>Leavenworth · San Juan Islands · Skagit Valley · Mount Rainier · Lake Chelan · and more</p></div>
   </div>
-  <p class="where-note"><strong>Planning a wedding farther away? I travel worldwide. Travel fees may apply depending on the distance.</strong></p>
+  <p class="where-note"><strong>Travel is free within 50 miles of Seattle. Planning a wedding farther away? I travel worldwide. Travel fees may apply depending on the distance.</strong></p>
 </section>
 
 <section class="faq" aria-labelledby="faq-title">
@@ -190,7 +192,7 @@ home_body = f"""
 </section>
 
 <section class="home-cta">
-  <a class="btn" href="contact.html">Contact me</a>
+  <a class="btn" href="contact.html">Book a free consultation</a>
 </section>
 
 <img class="full-bleed-photo" src="assets/images/live-painter-at-easel.webp" width="1050" height="1400" loading="lazy"
@@ -208,13 +210,13 @@ WED_STEPS = [
     ("5. White-Glove Delivery", "Within 4-6 months, your completed painting is beautifully packaged and delivered to your home. Each piece is signed, sealed, and ready to grace your space with the elegance and emotion of your wedding day."),
 ]
 WED_PKGS = [
-    ("Silver Package", 3000, "A romantic live painting of just the couple, captured in an intimate moment with a softly detailed background.", "18″×24″ canvas, up to 8 hours of live painting, with studio enhancements included."),
-    ("Gold Package", 4000, "A refined scene of the couple set within a detailed backdrop of your venue or ceremony space.", "24″×30″ canvas, live painting on-site, finished with studio detailing."),
-    ("Platinum Package", 6000, "An immersive painting featuring the couple and more guests, set in a richly detailed environment.", "30″×40″ canvas, painted live with luxurious studio completion."),
+    ("Silver Collection", 2500, "Starting at $2,500", "A romantic live painting of just the couple, captured in an intimate moment with a softly detailed background.", "18″×24″ canvas, up to 8 hours of live painting, with studio enhancements included."),
+    ("Gold Collection", 3800, "Starting at $3,800", "A refined scene of the couple set within a detailed backdrop of your venue or ceremony space.", "24″×30″ canvas, live painting on-site, finished with studio detailing."),
+    ("Platinum Collection", 5500, "$5,500+", "An immersive painting featuring the couple and more guests, set in a richly detailed environment.", "30″×40″ canvas, painted live with luxurious studio completion."),
 ]
 steps_html = lambda steps: "\n".join(f'<div class="step"><h3>{t}</h3><p>{d}</p></div>' for t, d in steps)
 pkgs_html = f"\n{DIVIDER}\n".join(
-    f'<div class="package"><h3 class="pkg-name">{n} ~ ${p:,}</h3><p>{d}<br>{s}</p></div>' for n, p, d, s in WED_PKGS)
+    f'<div class="package"><h3 class="pkg-name">{n}</h3><p class="price">{label}</p><p>{d}<br>{s}</p></div>' for n, p, label, d, s in WED_PKGS)
 
 wed_body = f"""
 <header class="page-title wrap"><h1 class="script title-lg">Live Wedding Painting</h1></header>
@@ -235,17 +237,19 @@ wed_body = f"""
   </div>
 </section>
 <section class="packages wrap" aria-labelledby="pkg-title">
-  <h2 id="pkg-title" class="visually-hidden">Live wedding painting packages and pricing</h2>
+  <h2 id="pkg-title" class="script title-sm">Collections</h2>
+  <p class="pkg-intro">Every collection includes hidden “Easter eggs” painted just for the two of you, and free travel within 50 miles of Seattle.</p>
 {pkgs_html}
-<p class="page-cta"><a class="btn" href="contact.html">Check your date &amp; send an inquiry</a></p>
+<p class="page-cta"><a class="btn" href="contact.html">Book a free consultation</a></p>
 </section>
 """
 wed_schema = [breadcrumb("Live Wedding Painting", "live-wedding-painting.html"), {
     "@context": "https://schema.org", "@type": "Service", "serviceType": "Live wedding painting",
     "name": "Live Wedding Painting", "provider": {"@id": f"{SITE}/#business"},
     "areaServed": AREAS,
-    "offers": [{"@type": "Offer", "name": n, "price": p, "priceCurrency": "USD", "description": f"{d} {s}"}
-               for n, p, d, s in WED_PKGS]}]
+    "offers": [{"@type": "Offer", "name": n, "priceCurrency": "USD", "description": f"{d} {s}",
+                "priceSpecification": {"@type": "PriceSpecification", "minPrice": p, "priceCurrency": "USD"}}
+               for n, p, label, d, s in WED_PKGS]}]
 
 # ---------------------------------------------------------------- GUEST PORTRAITS
 GUEST_STEPS = [
@@ -260,10 +264,10 @@ TIERS = [
     ("The Garden Party", "$2,500", 2500, "Guest Count 101–150", None),
     ("The Celebration", "$4,000", 4000, "Guest Count 151–200", "Includes a dedicated assistant"),
     ("The Grand Affair", "$5,500", 5500, "Guest Count 201–300", "Includes a dedicated assistant"),
-    ("The Gala", "from $9,500", 9500, "Guest Count 301+", "Includes an assistant or second artist"),
+    ("The Gala", "$9,500+", 9500, "Guest Count 301+", "Includes an assistant or second artist"),
 ]
 tiers_html = f"\n{DIVIDER}\n".join(
-    f'<div class="tier"><h3 class="pkg-name small">{n} ~ {p}</h3><p>{c}{"<br>" + x if x else ""}</p></div>'
+    f'<div class="tier"><h3 class="pkg-name small">{n}</h3><p class="price small">{p}</p><p>{c}{"<br>" + x if x else ""}</p></div>'
     for n, p, _, c, x in TIERS)
 guest_body = f"""
 <header class="page-title wrap"><h1 class="script title-lg">Guest Portraits</h1>
@@ -288,9 +292,15 @@ guest_body = f"""
   </div>
 </section>
 <section class="tiers wrap" aria-labelledby="tiers-title">
-  <h2 id="tiers-title" class="visually-hidden">Live guest portrait packages and pricing</h2>
+  <h2 id="tiers-title" class="script title-sm">Guest Portrait Collections</h2>
 {tiers_html}
-<p class="page-cta"><a class="btn" href="contact.html">Book guest portraits for your event</a></p>
+</section>
+<section class="ornaments wrap" id="ornaments" aria-labelledby="orn-title">
+  <h2 id="orn-title" class="script title-sm">Live Ornament Portraits</h2>
+  <p class="orn-lead">Guest portraits painted live and sealed in keepsake ornaments: the favor guests hang on their tree every year. Perfect for winter weddings and holiday parties.</p>
+  <p class="orn-detail">Every ornament is packaged on-site by my assistant, ready for guests to take home.</p>
+  <p class="orn-note">Ornament styles vary depending on availability. Please book at least 3 weeks before your event. Reach out for current options and pricing.</p>
+  <p class="page-cta"><a class="btn" href="contact.html">Book a free consultation</a></p>
 </section>
 <section class="styles wrap" aria-labelledby="styles-title">
   <h2 id="styles-title" class="script title-sm">Portrait Styles</h2>
@@ -338,6 +348,7 @@ custom_body = """
 <section class="custom-more wrap" aria-labelledby="ornament-title">
   <h2 id="ornament-title" class="script title-sm">Live Ornament Portraits</h2>
   <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. Gift one painted from a favorite photo, or have guests painted live at your holiday party or winter wedding: the favor they actually keep.</p>
+  <p class="orn-note">Ornament styles vary depending on availability. Please order at least 3 weeks ahead. Reach out for current options and pricing, or <a href="guest-portraits.html#ornaments">see live ornament portraits for events</a>.</p>
 </section>
 <section class="custom-more wrap" aria-labelledby="custom-how-title">
   <h2 id="custom-how-title" class="script title-sm">How a Custom Order Works</h2>
@@ -360,7 +371,7 @@ custom_schema = [breadcrumb("Custom Orders", "custom-orders.html"), {
 contact_body = f"""
 <section class="contact contact-page" id="contact" aria-labelledby="contact-title">
   <h1 id="contact-title" class="script title-lg">Contact</h1>
-  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day.<br><span class="contact-base">Based in the Seattle area · Painting across Washington and beyond</span></p>
+  <p class="contact-intro">Tell me about your celebration and I’ll get back to you within a day to set up your free consultation.<br><span class="contact-base">Based in the Seattle area · Painting across Washington and beyond</span></p>
   <div class="contact-layout wrap">
     <form class="inquiry" id="inquiry" novalidate>
       <input type="hidden" name="access_key" value="{WEB3FORMS_KEY}">
@@ -388,7 +399,7 @@ contact_body = f"""
       </div>
       <label class="field"><span>Guest count</span><input id="f-guests" name="guest_count" inputmode="numeric" placeholder="If you know it"></label>
       <label class="field"><span>Tell me about your event *</span><textarea id="f-message" name="message" rows="5" required></textarea></label>
-      <button class="btn" type="submit" id="f-submit">Send inquiry</button>
+      <button class="btn" type="submit" id="f-submit">Request a free consultation</button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
     <aside class="contact-side">
@@ -437,7 +448,7 @@ FORM_SCRIPT = """
     }).catch(function () {
       status.className = "form-status error";
       status.textContent = "Sorry, that didn’t send. Please email me at kala.fine.artist@gmail.com or text +1 425-892-4523.";
-    }).finally(function () { btn.disabled = false; btn.textContent = "Send inquiry"; });
+    }).finally(function () { btn.disabled = false; btn.textContent = "Request a free consultation"; });
   });
 })();
 </script>"""
@@ -450,7 +461,7 @@ PAGES = {
                    "Live wedding painting and guest portraits by Wamika Bansal, a Seattle-area live wedding painter serving Seattle, Bellevue, the Puget Sound, Leavenworth and the San Juan Islands.",
                    home_body, [BUSINESS, faq_schema]),
     "live-wedding-painting.html": ("Live Wedding Painting in Seattle & Washington | Packages & Pricing",
-                   "Bespoke live wedding paintings created on-site at your Seattle, Eastside or Washington destination wedding. Silver, Gold and Platinum packages from $3,000.",
+                   "Bespoke live wedding paintings created on-site at your Seattle, Eastside or Washington destination wedding. Collections starting at $2,500, with free travel within 50 miles.",
                    wed_body, wed_schema),
     "guest-portraits.html": ("Live Guest Portraits for Seattle Weddings & Events | Kala Fine Art",
                    "Live guest portraits for Seattle-area weddings and events, on custom stationery — a one-of-a-kind favor every guest takes home. Watercolor, detailed and fashion-sketch styles. Packages from $2,000.",
