@@ -124,7 +124,7 @@ FAQS = [
     ("Can you include more than just the couple?",
      "Absolutely. I can incorporate family members, wedding party, or even pets into the painting. Additional fees apply depending on the number of subjects."),
     ("Can I book live painting and guest portraits for the same event?",
-     "Each event books one service, since I can’t paint the main canvas and guest portraits at the same time. For multi-day celebrations, such as a sangeet or mehendi followed by the wedding, you can book both on different days."),
+     "Yes! For multi-day celebrations, such as a sangeet or mehendi followed by the wedding, I can paint both myself on different days. For a single event, I bring a second artist so your live painting and guest portraits happen side by side."),
     ("Do you paint other events or from photos?",
      "Yes, I love capturing all types of celebrations beyond weddings. I can also create a painting after the event using professional photos."),
 ]
