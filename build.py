@@ -232,7 +232,7 @@ WED_STEPS = [
 WED_PKGS = [
     ("Silver Collection", 2500, "Starting at $2,500", "A romantic live painting of just the couple, captured in an intimate moment with a softly detailed background.", "18″×24″ canvas, up to 8 hours of live painting, with studio enhancements included."),
     ("Gold Collection", 3800, "Starting at $3,800", "A refined scene of the couple set within a detailed backdrop of your venue or ceremony space.", "24″×30″ canvas, live painting on-site, finished with studio detailing."),
-    ("Platinum Collection", 5500, "$5,500+", "An immersive painting featuring the couple and more guests, set in a richly detailed environment.", "30″×40″ canvas, painted live with luxurious studio completion."),
+    ("Platinum Collection", 5500, "Starting at $5,500", "An immersive painting featuring the couple and more guests, set in a richly detailed environment.", "30″×40″ canvas, painted live with luxurious studio completion."),
 ]
 steps_html = lambda steps: "\n".join(f'<div class="step"><h3>{t}</h3><p>{d}</p></div>' for t, d in steps)
 pkgs_html = f"\n{DIVIDER}\n".join(
