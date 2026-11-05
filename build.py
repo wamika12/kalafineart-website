@@ -11,6 +11,7 @@ FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfYFw3JZnRzN8nLyTJm6h2s0l_YPWYI
 IG = "https://www.instagram.com/kalafineart"
 TT = "https://www.tiktok.com/t/ZP8mBsE6P/"
 GOOGLE_REVIEWS = "https://maps.app.goo.gl/PhoWwW3YnVLsdM52A"
+ETSY_ORNAMENT = "https://www.etsy.com/listing/4610241511/custom-hand-painted-portrait-ornament"
 PHONE = "+1 425-892-4523"
 EMAIL = "kala.fine.artist@gmail.com"
 # Free key from web3forms.com: inquiries are emailed to the address it was created with
@@ -114,7 +115,7 @@ BUSINESS = {
     "founder": {"@type": "Person", "name": "Wamika Bansal", "jobTitle": "Live Wedding Painter"},
     "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US"},
     "areaServed": AREAS,
-    "priceRange": "$$$", "sameAs": [IG, TT, GOOGLE_REVIEWS],
+    "priceRange": "$$$", "sameAs": [IG, TT, GOOGLE_REVIEWS, ETSY_ORNAMENT],
 }
 
 FAQS = [
@@ -365,7 +366,7 @@ custom_body = """
 </section>
 <section class="custom-more wrap" aria-labelledby="ornament-title">
   <h2 id="ornament-title" class="script title-sm">Ornament Portraits</h2>
-  <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. <a href="holiday-specials.html#gift-ornaments">See this season’s Holiday Specials</a>.</p>
+  <p>Hand-painted portraits of the people (and pets) you love, made to hang on the tree every year. <a href="holiday-specials.html#gift-ornaments">See this season’s Holiday Specials</a> or <a href="https://www.etsy.com/listing/4610241511/custom-hand-painted-portrait-ornament" target="_blank" rel="noopener">order one on Etsy</a>.</p>
 </section>
 <section class="custom-more wrap" aria-labelledby="custom-how-title">
   <h2 id="custom-how-title" class="script title-sm">How a Custom Order Works</h2>
@@ -476,7 +477,7 @@ contact_schema = [breadcrumb("Contact", "contact.html"), {
 
 # ---------------------------------------------------------------- HOLIDAY SPECIALS
 # Seasonal offers. Swap sections in and out of holiday_body each season.
-holiday_body = """
+holiday_body = f"""
 <header class="page-title wrap"><h1 class="script title-lg">Holiday Specials</h1>
   <p class="page-sub">Seasonal keepsakes, painted by hand in my Seattle-area studio and live at your celebration</p></header>
 
@@ -497,12 +498,13 @@ holiday_body = """
     <div class="hol-option" id="gift-ornaments">
       <h3>As a gift</h3>
       <p>Send me a favorite photo of your family, your partner or your pet, and I’ll paint it into an ornament to give this season. Lovely for parents, newlyweds, first Christmases and pet lovers.</p>
+      <p class="etsy-link"><a href="{ETSY_ORNAMENT}" target="_blank" rel="noopener">Order a gift ornament on Etsy →</a></p>
     </div>
     <div class="hol-option">
       <h3>Personalized for you</h3>
       <p>Add custom text, such as names, a date or a short message, on the front or back of your ornament, depending on the style.</p>
     </div>
-    <p class="hol-cta"><a class="btn" href="contact.html">Request ornament options</a></p>
+    <p class="hol-cta"><a class="btn" href="{ETSY_ORNAMENT}" target="_blank" rel="noopener">Order a gift on Etsy</a> <a class="btn btn-outline" href="contact.html">Book for your event</a></p>
   </div>
 </section>
 
@@ -536,14 +538,15 @@ holiday_body = """
     <div>
       <h2 class="script title-sm">Make this year’s favorite gift</h2>
       <p>Holiday dates fill quickly. Reach out at least 3 weeks before your event or gifting date, and I’ll share this season’s ornament options.</p>
-      <p class="hol-cta"><a class="btn" href="contact.html">Request ornament options</a></p>
+      <p class="hol-cta"><a class="btn" href="{ETSY_ORNAMENT}" target="_blank" rel="noopener">Order on Etsy</a> <a class="btn btn-outline" href="contact.html">Book for your event</a></p>
     </div>
   </div>
 </section>
 """
 holiday_schema = [breadcrumb("Holiday Specials", "holiday-specials.html"), {
     "@context": "https://schema.org", "@type": "Service", "serviceType": "Custom hand-painted ornament portraits",
-    "name": "Live Ornament Portraits", "provider": {"@id": f"{SITE}/#business"}, "areaServed": AREAS}]
+    "name": "Live Ornament Portraits", "provider": {"@id": f"{SITE}/#business"}, "areaServed": AREAS,
+    "offers": {"@type": "Offer", "url": ETSY_ORNAMENT, "name": "Custom hand-painted portrait ornament"}}]
 
 PAGES = {
     "index.html": ("Live Wedding Painter in Seattle, WA | Kala Fine Art by Wamika Bansal",

@@ -300,3 +300,10 @@ a { color: inherit; }
 .review figcaption span { display: block; font-family: var(--body); font-weight: 400; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #5c5850; margin-top: 4px; }
 .reviews-more { margin: 34px 0 0; }
 @media (max-width: 900px) { .review-grid { grid-template-columns: 1fr; gap: 18px; } }
+
+.etsy-link { margin: 4px 0 0 !important; }
+.etsy-link a { color: var(--gold); font-family: var(--bold); font-weight: 700; font-size: 16px; letter-spacing: .03em; text-decoration: none; }
+.etsy-link a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hol-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hol-close-inner .hol-cta, .hol-copy .hol-cta { justify-content: flex-start; }
+@media (max-width: 900px) { .hol-copy .hol-cta, .hol-close-inner .hol-cta { justify-content: center; } }
